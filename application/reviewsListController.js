@@ -59,7 +59,7 @@ angular.module('hiitreviewApp')
                 comment: '',
                 rating: 0
             };
-            $scope.ratingLabels = ['I hated it!', "I didn't like it!", 'It was OK!', 'I liked it!', 'I loved it!'];
+            $scope.ratingLabels = ['I hated it', "I didn't like it", 'It was OK', 'I liked it', 'I loved it'];
             reviewService.getCompanyInfo((result) => {
                 $scope.companyName = result;
             });
