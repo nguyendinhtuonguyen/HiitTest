@@ -1,0 +1,36 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="left"><ons-back-button>Close</ons-back-button></div>
+        <div class="center">
+            Review {{companyName}}
+        </div>
+        <div class="right">
+            <v-ons-button class="save-button__label" ng-click="save()">Save</v-ons-button>
+        </div>
+    </ons-toolbar>
+    <div>
+        <ons-row class="stars review">
+            <ons-col class="star-box" ng-repeat="star in [1,2,3,4,5]">
+                <div ng-click="onStarClicked($index + 1, false)" class="fa fa-star fa-2x filled" ng-if="$index + 1 <= form.rating"></div>
+                <div ng-click="onStarClicked($index + 1, false)" class="fa fa-star-o fa-2x" ng-if="$index + 1 >  form.rating"></div>
+            </ons-col>
+        </ons-row>
+        <ons-row>
+            <ons-col class="rate-text">
+                {{ ratingLabels[form.rating - 1] }}
+            </ons-col>
+        </ons-row>
+        <ons-row>
+            <ons-col>
+                <div class="review-form">
+                    <div class="review-form-row">
+                        <ons-input id="username" placeholder="Your name" ng-model="form.username"></ons-input>
+                    </div>
+                    <div class="review-form-row">
+                        <textarea class="textarea textarea--transparent" rows="3" placeholder="Add more details on your experience..." ng-model="form.comment"></textarea>
+                    </div>
+                </div>
+            </ons-col>
+        </ons-row>
+    </div>
+</ons-page>

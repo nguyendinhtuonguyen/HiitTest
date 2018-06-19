@@ -1,0 +1,100 @@
+<ons-page>
+  <ons-toolbar>
+    <div class="center">{{companyName}}</div>
+  </ons-toolbar>
+  <div class="list-container">
+    <p class="rate-title" style="margin-top: 0px;">Reviews</p>
+    <ons-row class="score-container">
+      <ons-col width='50px'>
+        <div class="score-badge">
+          4.1
+        </div>
+      </ons-col>
+      <ons-col>
+        <div class="metadata">from 27 ratings</div>
+      </ons-col>
+      <ons-col>
+        <div class="link pull-right">
+          View all reviews
+        </div>
+      </ons-col>
+    </ons-row>
+    <ons-row class="review-container border-bottom" ng-if="!currentReview">
+      <ons-col width='50px'>
+          <i class="fa fa-user-circle fa-2x"></i>
+      </ons-col>
+      <ons-col>
+        <ons-row>
+          <div class="header-sub">Rate and review</div>
+        </ons-row>
+        <ons-row>
+          <div class="rate-sub-title metadata">Share your experience to help others</div>
+        </ons-row>
+        <ons-row class="stars">
+          <ons-col ng-repeat="star in [1,2,3,4,5]">
+            <span class="fa fa-star-o fa-2x" ng-click="onStarClicked($index + 1, true)"></span>
+          </ons-col>
+        </ons-row>
+      </ons-col>
+    </ons-row>
+    <div ng-if="currentReview" class="current-review">
+      <p class="header-sub">Your review</p>
+      <ons-row  class="review-row border-bottom">
+        <ons-col width='50px'>
+            <i class="fa fa-user-circle fa-2x"></i>
+        </ons-col>
+        <ons-col>
+          <ons-row>
+            <div class="header-sub">{{currentReview.username || 'Anonymous'}}</div>
+          </ons-row>
+          <ons-row class="stars">
+            <div ng-repeat="star in [1,2,3,4,5]">
+              <div class="fa fa-star filled" ng-if="$index + 1 <= currentReview.rating"></div>
+              <div class="fa fa-star" ng-if="$index + 1 >  currentReview.rating"></div>
+            </div>
+            <div class="rate-sub-title metadata">1min ago - hitta.se</div>
+          </ons-row>
+          <ons-row>
+            <div ng-if="!currentReview.comment" class="link edit-comment" ng-click="edit()">
+              Describe your experience
+            </div>
+            <div class="edit-comment" ng-if="currentReview.comment">
+              {{currentReview.comment}}
+            </div>
+          </ons-row>
+        </ons-col>
+        <ons-col width='50px'>
+          <i class="fa fa-ellipsis-h edit-btn pull-right"  ng-click="edit()"></i>
+        </ons-col>
+      </ons-row>
+    </div>
+    <div class="latest-review">
+        <p class="header-sub">Latest reviews</p>
+        <ons-row ng-repeat="review in shortList" class="review-row">
+          <ons-col width='50px'>
+              <i class="fa fa-user-circle fa-2x"></i>
+          </ons-col>
+          <ons-col>
+            <ons-row>
+              <div class="header-sub-username">{{review.username}}</div>
+            </ons-row>
+            <ons-row class="stars">
+              <div ng-repeat="star in [1,2,3,4,5]">
+                <div class="fa fa-star filled" ng-if="$index + 1 <= review.rating"></div>
+                <div class="fa fa-star" ng-if="$index + 1 >  review.rating"></div>
+              </div>
+              <div class="rate-sub-title metadata">5min ago - hitta.se</div>
+            </ons-row>
+            <ons-row>
+              <div class="edit-comment">
+                {{review.comment}}
+              </div>
+            </ons-row>
+          </ons-col>
+        </ons-row>
+      </div>
+      <div class="link load-more">
+          View all reviews
+      </div>
+  </div>
+</ons-page>

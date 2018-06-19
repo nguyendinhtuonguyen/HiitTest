@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiit Reviews</title>
+    <script src="./libs/onsenui/js/onsenui.min.js"></script>
+    <script src="./libs/angular/angular.min.js"></script>
+    <script src="./libs/onsenui/js/angular-onsenui.min.js"></script>
+
+    <script src="application/app.js"></script>
+    <script src="application/reviewService.js"></script>
+    <script src="application/reviewsListController.js"></script>
+
+    <link rel="stylesheet" href="./styles/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./libs/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="./libs/onsenui/css/onsen-css-components.css">
+    <link rel="stylesheet" href="./styles/app.css">
+</head>
+<body ng-app="hiitreviewApp" ng-controller="reviewsListController">
+    <ons-navigator swipeable var="appNav" page="application/views/main.html"></ons-navigator>
+</body>
+</html>

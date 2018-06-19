@@ -1,0 +1,11 @@
+{
+  "name": "hiitreviewtest",
+  "version": "1.0.0",
+  "scripts": {},
+  "dependencies": {
+    "onsenui": "^2.10.1",
+    "angular": "1.7.2",
+    "font-awesome": "4.7.0"
+  },
+  "devDependencies": {}
+}
