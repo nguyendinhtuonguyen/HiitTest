@@ -1,28 +1,8 @@
 
 angular.module('hiitreviewApp')
     .controller('reviewsListController', ['$scope', '$http', 'reviewService', function ($scope, $http, reviewService) {
-
-        var setupMockingData = (start, count) => {
-            var mockupData = [{
-                username: 'Anonym',
-                comment: 'Liked it very much - probably one of the best thai restaurants in the city - recommend!',
-                rating: 4
-            }, {
-                username: 'Jenny Svensson',
-                comment: 'Maybe a bit too fast food. I personally dislike that. Good otherwise.',
-                rating: 3
-            }, {
-                username: 'happy56',
-                comment: 'Super good! Love the food!',
-                rating: 5
-            }];
-
-            $scope.shortList = mockupData;
-        }
-
-
+        
         $scope.save = () => {
-
             $scope.currentReview = {
                 username: $scope.form.username,
                 comment: $scope.form.comment,
@@ -54,7 +34,24 @@ angular.module('hiitreviewApp')
                 appNav.pushPage('application/views/reviewForm.html');
             }
         }
-        
+
+        var setupMockingData = (start, count) => {
+            var mockupData = [{
+                username: 'Anonym',
+                comment: 'Liked it very much - probably one of the best thai restaurants in the city - recommend!',
+                rating: 4
+            }, {
+                username: 'Jenny Svensson',
+                comment: 'Maybe a bit too fast food. I personally dislike that. Good otherwise.',
+                rating: 3
+            }, {
+                username: 'happy56',
+                comment: 'Super good! Love the food!',
+                rating: 5
+            }];
+
+            $scope.shortList = mockupData;
+        }        
 
         var init = () => {
             $scope.form = {
